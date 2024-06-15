@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: 'src',
-  build: {
-    outDir: '../dist'
-  },
   base: '/BrailleTech_WebSite/',
+  build: {
+    outDir: '../dist',
+  },
   server: {
-    open: true
-  }
+    open: true,
+  },
 });
