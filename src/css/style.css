@@ -11731,8 +11731,9 @@ html {
     width: 1.5vw;
     left: -2vw;
   }
+}
 
-  /* Estilos para la sección del traductor */
+/* Estilos para la sección del traductor */
 .translator-container {
   max-width: 690px;
   width: 100%;
@@ -11760,7 +11761,7 @@ html {
 }
 
 .text-input textarea {
-  height: 150px;
+  height: 300px;
   width: 100%;
   border: none;
   outline: none;
@@ -11845,13 +11846,13 @@ html {
 
 .button-container {
   display: flex;
+  flex-wrap: nowrap; /* Asegura que los botones estén en una sola fila */
   justify-content: center;
-  gap: 20px;
+  gap: 10px; /* Ajusta el espacio entre los botones */
   margin-top: 20px;
 }
 
 .button-container .btn {
-  width: auto;
   padding: 14px;
   outline: none;
   border: none;
@@ -11861,6 +11862,8 @@ html {
   border-radius: 5px;
   background: #0E578D;
   transition: background 0.3s ease;
+  min-width: 150px;
+  text-align: center;
 }
 
 .button-container .btn:hover {
@@ -11889,7 +11892,6 @@ html {
 .signage-section button:hover {
   background: #4158d0;
 }
-
 
 @media (max-width: 100px) {
   .main-container {
@@ -11937,6 +11939,16 @@ html {
   .controls .exchange {
     font-size: 14px;
   }
+
+  .button-container {
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en varias líneas en pantallas pequeñas */
+    gap: 10px;
+  }
+
+  .button-container .btn {
+    flex: 1 1 100%; /* Asegura que los botones se ajusten en pantallas pequeñas */
+    min-width: 100%; /* Asegura que los botones ocupen el 100% del ancho disponible en pantallas pequeñas */
+  }
 }
 
 .signage-section {
@@ -11960,13 +11972,66 @@ html {
 }
 
 
-#logo {
-  max-width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: -10px;
-  margin-top: -20px;
+/* Estilos del teclado virtual */
+.braille-keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
 }
 
+.braille-keyboard button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 60px;
+  text-align: center;
 }
+
+.braille-keyboard button span.braille {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.braille-keyboard button span.char {
+  font-size: 0.75rem;
+}
+
+.braille-keyboard button:hover {
+  background-color: #e2e6ea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.braille-keyboard button:active {
+  background-color: #dae0e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .braille-keyboard button {
+      height: 50px;
+      padding: 8px;
+      font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .braille-keyboard {
+      grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  }
+}
+#virtualKeyboardSection {
+  display: none;
+}
+
