@@ -12052,3 +12052,133 @@ html {
   height: 100%;
   border: 0;
 }
+
+/* Agrega estos estilos a tu archivo CSS */
+#microphone {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#microphone.recording {
+  animation: pulse 1s infinite;
+  color: red;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Añade tus estilos actuales aquí */
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .btn-outline-dark {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Añade más estilos según sea necesario */
+
+/* src/css/style.css */
+
+/* Estilos actuales */
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .btn-outline-dark {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Estilos específicos del traductor en modo oscuro */
+body.dark-mode .translator-container {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.dark-mode .text-input {
+  border-bottom-color: #444;
+}
+
+body.dark-mode .text-input textarea {
+  background-color: #333;
+  color: #ffffff;
+}
+
+body.dark-mode .controls {
+  border-top-color: #444;
+}
+
+body.dark-mode .controls .row .icons i {
+  color: #adadad;
+}
+
+body.dark-mode .controls .row .icons i:hover {
+  color: #5372F0;
+}
+
+body.dark-mode .button-container .btn {
+  background: #333;
+}
+
+body.dark-mode .button-container .btn:hover {
+  background: #444;
+}
+
+body.dark-mode .signage-section button {
+  background: #333;
+}
+
+body.dark-mode .signage-section button:hover {
+  background: #444;
+}
+
+body.dark-mode .braille-keyboard button {
+  background-color: #333;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.dark-mode .braille-keyboard button:hover {
+  background-color: #444;
+}
+
+body.dark-mode .braille-keyboard button:active {
+  background-color: #555;
+}

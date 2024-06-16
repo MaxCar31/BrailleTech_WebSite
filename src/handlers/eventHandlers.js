@@ -1,5 +1,6 @@
 import Braille from '../utils/braille.js';
 import { addLineBreaks, createSignageElement, createMirrorElement, downloadImage, downloadPDF } from '../utils/utils.js';
+import VoiceInput from '../utils/VoiceInput.js';
 
 /**
  * Inicializa los controladores de eventos para la aplicación.
@@ -15,6 +16,7 @@ export function initializeEventHandlers() {
     const downloadMirrorImageBtn = document.getElementById('downloadMirrorImageBtn');
     const soundFrom = document.getElementById('soundFrom');
     const soundTo = document.getElementById('soundTo');
+    const microphoneIcon = document.getElementById('microphone');
     const outputText = document.getElementById('outputText');
     const inputLanguage = document.getElementById('inputLanguage');
     const virtualKeyboardSection = document.getElementById('virtualKeyboardSection');
@@ -62,6 +64,22 @@ export function initializeEventHandlers() {
         const utterance = new SpeechSynthesisUtterance(spanishText);
         window.speechSynthesis.speak(utterance);
     });
+
+    // Inicializar VoiceInput
+    const voiceInput = new VoiceInput('inputText', 'microphone');
+
+    // Agregar eventos de mousedown y mouseup al icono del micrófono
+    if (microphoneIcon) {
+    microphoneIcon.addEventListener('mousedown', () => {
+        voiceInput.startListening();
+    });
+
+    microphoneIcon.addEventListener('mouseup', () => {
+        voiceInput.stopListening();
+    });
+    }
+
+    
 
     /**
      * Evento para realizar la traducción del texto de entrada.
