@@ -1,25 +1,18 @@
-
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/BrailleTech_WebSite/',  
-  root: 'src',
+  base: '/',  
+  root: '.',
   build: {
-    outDir: '../dist',
+    outDir: './dist',
     emptyOutDir: true,
-  },
-  server: {
-    open: true,
-  },
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        acerca: './acerca.html',
+        Testimonios: './Testimonios.html',
+        Traductor: './Traductor.html',
+      }
+    }
+  }
 });
-
-/*
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-  base: './',
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-  },
-});*/
