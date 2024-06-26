@@ -1,9 +1,9 @@
 /**
  * @fileoverview Este script inicializa un teclado virtual y configura los manejadores de eventos.
  */
-import './css/style.css';
-import VirtualKeyboard from './components/VirtualKeyboard';
-import { initializeEventHandlers } from './handlers/eventHandlers';
+import './src/css/style.css';
+import VirtualKeyboard from './src/components/VirtualKeyboard';
+import { initializeEventHandlers } from './src/handlers/eventHandlers';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar teclado virtual

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 
 export default defineConfig({
   base: '/',  
@@ -8,10 +9,15 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: './index.html',
-        acerca: './acerca.html',
-        Testimonios: './Testimonios.html',
-        Traductor: './Traductor.html',
+        main: path.resolve(__dirname, 'index.html'),
+        acerca: path.resolve(__dirname, 'acerca.html'),
+        Testimonios: path.resolve(__dirname, 'Testimonios.html'),
+        Traductor: path.resolve(__dirname, 'Traductor.html')
+      },
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
       }
     }
   }
