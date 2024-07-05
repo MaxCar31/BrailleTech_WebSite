@@ -11970,23 +11970,61 @@ html {
   flex: 1;
   min-width: 150px;
 }
+#virtualKeyboardSection {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 700px;
+  height: auto;
+  max-width: 100%;
+  z-index: 1050;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
 
+.floating-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
 
-/* Estilos del teclado virtual */
-.braille-keyboard {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
+.floating-panel-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.btn-close {
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.keyboard-container {
+  padding: 10px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.keyboard-row:last-child {
+  margin-bottom: 0;
 }
 
 .braille-keyboard button {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 8px;
   background-color: #f8f9fa;
   border-radius: 4px;
   font-size: 1rem;
@@ -11994,13 +12032,18 @@ html {
   cursor: pointer;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   text-align: center;
 }
 
+.braille-keyboard button.special-button {
+  width: auto;
+  padding: 0 15px;
+}
+
 .braille-keyboard button span.braille {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 5px;
 }
 
@@ -12019,39 +12062,70 @@ html {
 }
 
 @media (max-width: 768px) {
+  #virtualKeyboardSection {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .keyboard-container {
+    padding: 10px;
+  }
+
+  .keyboard-row {
+    flex-wrap: wrap;
+  }
+
   .braille-keyboard button {
-      height: 50px;
-      padding: 8px;
-      font-size: 0.875rem;
+    height: 40px;
+    padding: 6px;
+    font-size: 0.75rem;
+    width: 30px;
+    margin: 2px;
+  }
+
+  .braille-keyboard button.special-button {
+    width: auto;
+    padding: 0 10px;
+  }
+
+  .braille-keyboard button span.braille {
+    font-size: 1rem;
+  }
+
+  .braille-keyboard button span.char {
+    font-size: 0.625rem;
   }
 }
 
 @media (max-width: 576px) {
-  .braille-keyboard {
-      grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  .keyboard-row {
+    justify-content: center;
+  }
+
+  .braille-keyboard button {
+    height: 30px;
+    padding: 4px;
+    font-size: 0.625rem;
+    width: 25px;
+    margin: 2px;
+  }
+
+  .braille-keyboard button.special-button {
+    width: auto;
+    padding: 0 8px;
+  }
+
+  .braille-keyboard button span.braille {
+    font-size: 0.875rem;
+  }
+
+  .braille-keyboard button span.char {
+    font-size: 0.5rem;
   }
 }
-#virtualKeyboardSection {
-  display: none;
-}
 
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  background: #000;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
 
 /* Agrega estos estilos a tu archivo CSS */
 #microphone {
@@ -12099,11 +12173,6 @@ body.dark-mode .btn-outline-dark:hover {
   color: #000000;
 }
 
-/* Añade más estilos según sea necesario */
-
-/* src/css/style.css */
-
-/* Estilos actuales */
 
 /* Modo oscuro */
 body.dark-mode {
@@ -12127,7 +12196,7 @@ body.dark-mode .btn-outline-dark:hover {
 
 /* Estilos específicos del traductor en modo oscuro */
 body.dark-mode .translator-container {
-  background-color: #1f1f1f;
+  background-color: #131314;
   color: #ffffff;
   border-color: #444;
 }
@@ -12181,4 +12250,43 @@ body.dark-mode .braille-keyboard button:hover {
 
 body.dark-mode .braille-keyboard button:active {
   background-color: #555;
+}
+
+#helpMessage {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* Estilos para el panel flotante */
+.floating-panel {
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  width: 1200px; /* Ajusta el ancho según sea necesario */
+  height: auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* Estilos para la barra de arrastre */
+.floating-panel-header {
+  cursor: move;
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.disabled-icon {
+  opacity: 0.5; /* Ajusta el nivel de opacidad */
+  pointer-events: none; /* Evita que se pueda hacer clic */
 }
