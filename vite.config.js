@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/',  
-  root: '.',
+  base: '/BrailleTech_WebSite/',
   build: {
-    outDir: './dist',
+    outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
@@ -12,7 +11,6 @@ export default defineConfig({
         acerca: './acerca.html',
         Testimonios: './Testimonios.html',
         Traductor: './Traductor.html',
-         mainJS: './src/main.js',
       }
     }
   }
