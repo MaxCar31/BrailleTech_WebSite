@@ -12,6 +12,7 @@ export default defineConfig({
         acerca: './acerca.html',
         Testimonios: './Testimonios.html',
         Traductor: './Traductor.html',
+         mainJS: './src/main.js',
       }
     }
   }
