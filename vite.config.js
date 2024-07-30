@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import html from 'vite-plugin-html';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 export default defineConfig({
   base: '/BrailleTech_WebSite/', // Asegúrate de que esta ruta sea correcta
@@ -16,7 +16,7 @@ export default defineConfig({
     }
   },
   plugins: [
-    html({
+    createHtmlPlugin({
       inject: {
         injectData: {
           title: 'BrailleTech'
