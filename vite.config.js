@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 
 export default defineConfig({
-  base: '/BrailleTech_WebSite/', // Asegúrate de que esta ruta sea correcta
+  base: '/', // Asegúrate de que esta ruta sea correcta
   build: {
     outDir: 'dist',
     emptyOutDir: true,
