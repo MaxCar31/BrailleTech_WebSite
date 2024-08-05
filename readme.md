@@ -75,7 +75,7 @@ Deberías ver los números de versión instalados de Node.js y npm.
 En la terminal, clona el repositorio BrailleTech usando el siguiente comando:
    
 ```bash
-git clone https://github.com/MaxCar31/BrailleTech.git
+git clone https://github.com/MaxCar31/BrailleTech_WebSite.git
 ```
 ### 4. Navega al directorio del proyecto
 
