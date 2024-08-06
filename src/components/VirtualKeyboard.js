@@ -26,8 +26,9 @@ class VirtualKeyboard {
             ],
             numbers: [
                 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-                ['@', '#', '$', '%', '&', '*', '-', '+', '=', '/', '.', ','],
-                ['!', '"', "'", ':', ';', '(', ')', '?', '¿', '¡']
+                ['!', '"', "'", ':', ';', '(', ')', '?', '¿', '¡'],
+                ['@', '#', '$', '%', '&', '*', '-', '+', '=', '/', '.', ',']
+               
             ]
         };
         this.init();
@@ -37,7 +38,7 @@ class VirtualKeyboard {
         const button = document.createElement('button');
         button.innerHTML = `<span class="braille">${braille}</span><span class="char">[${char}]</span>`;
         button.addEventListener('click', () => {
-            this.inputElement.value += char;
+            this.inputElement.value += braille;  // Cambiado para agregar el carácter Braille
         });
         return button;
     }
@@ -62,7 +63,7 @@ class VirtualKeyboard {
     }
 
     addSpace() {
-        this.inputElement.value += ' ';
+        this.inputElement.value += this.brailleMap[' '];  // Cambiado para agregar el carácter Braille para espacio
     }
 
     renderKeyboard() {
