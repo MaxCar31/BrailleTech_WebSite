@@ -9,6 +9,7 @@ class VirtualKeyboard {
         this.row4 = document.getElementById('row4');
         this.toggleCaseButton = document.getElementById('toggleCase');
         this.toggleNumbersButton = document.getElementById('toggleNumbers');
+        this.spaceButton = document.getElementById('spaceButton');
         this.brailleMap = brailleMap;
         this.isUppercase = false;
         this.isNumbers = false;
@@ -25,7 +26,7 @@ class VirtualKeyboard {
             ],
             numbers: [
                 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-                ['@', '#', '$', '%', '&', '*', '-', '+', '=', '/'],
+                ['@', '#', '$', '%', '&', '*', '-', '+', '=', '/', '.', ','],
                 ['!', '"', "'", ':', ';', '(', ')', '?', '¿', '¡']
             ]
         };
@@ -34,9 +35,9 @@ class VirtualKeyboard {
 
     createBrailleButton(char, braille) {
         const button = document.createElement('button');
-        button.textContent = `${braille} [${char}]`;
+        button.innerHTML = `<span class="braille">${braille}</span><span class="char">[${char}]</span>`;
         button.addEventListener('click', () => {
-            this.inputElement.value += braille;
+            this.inputElement.value += char;
         });
         return button;
     }
@@ -44,17 +45,24 @@ class VirtualKeyboard {
     init() {
         this.toggleCaseButton.addEventListener('click', () => this.toggleCase());
         this.toggleNumbersButton.addEventListener('click', () => this.toggleNumbers());
+        this.spaceButton.addEventListener('click', () => this.addSpace());
         this.renderKeyboard();
     }
 
     toggleCase() {
         this.isUppercase = !this.isUppercase;
+        this.isNumbers = false;
         this.renderKeyboard();
     }
 
     toggleNumbers() {
         this.isNumbers = !this.isNumbers;
+        this.isUppercase = false;
         this.renderKeyboard();
+    }
+
+    addSpace() {
+        this.inputElement.value += ' ';
     }
 
     renderKeyboard() {
@@ -64,17 +72,21 @@ class VirtualKeyboard {
 
         [this.row1, this.row2, this.row3].forEach((row, index) => {
             row.innerHTML = '';
-            layout[index].forEach(char => {
-                if (this.brailleMap[char]) {
-                    row.appendChild(this.createBrailleButton(char, this.brailleMap[char]));
-                }
-            });
+            if (layout[index]) {
+                layout[index].forEach(char => {
+                    if (this.brailleMap[char]) {
+                        row.appendChild(this.createBrailleButton(char, this.brailleMap[char]));
+                    }
+                });
+            }
         });
 
-        // Añadir botones especiales a la última fila
+        // Limpiar la cuarta fila
         this.row4.innerHTML = '';
-        this.row4.appendChild(this.createBrailleButton('.', this.brailleMap['.']));
-        this.row4.appendChild(this.createBrailleButton(',', this.brailleMap[',']));
+
+        // Actualizar texto de los botones especiales
+        this.toggleCaseButton.textContent = this.isUppercase ? '⇧' : '⇧';
+        this.toggleNumbersButton.textContent = this.isNumbers ? 'ABC' : '?123';
     }
 }
 
