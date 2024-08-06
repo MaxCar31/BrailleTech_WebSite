@@ -11976,7 +11976,7 @@ html {
   bottom: 20px;
   right: 20px;
   width: 700px;
-  height: auto;
+  height: 350px;
   max-width: 100%;
   z-index: 1050;
   background-color: #ffffff;
@@ -12061,7 +12061,7 @@ html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768zpx) {
   #virtualKeyboardSection {
     width: 100%;
     bottom: 0;

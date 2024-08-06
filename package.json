@@ -9,7 +9,7 @@
     "serve": "vite preview",
     "preview": "vite preview",
     "test": "jest",
-    "docs": "jsdoc -d ./docs ./src"
+    "docs": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
     "annyang": "^2.6.1",

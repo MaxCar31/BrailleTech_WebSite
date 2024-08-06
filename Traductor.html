@@ -34,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link" href="Testimonios.html" tabindex="0">Testimonios</a></li>
                         <li class="nav-item"><a class="nav-link" href="acerca.html" tabindex="0">Acerca de</a></li>
                         <li class="nav-item">
-                            <button id="darkModeToggle" class="btn btn-outline-dark" tabindex="0">Modo Oscuro</button>
+                <!--  <button id="darkModeToggle" class="btn btn-outline-dark" tabindex="0">Modo Oscuro</button>-->
                         </li>
                     </ul>
                 </div>
@@ -115,27 +115,27 @@
             <br><br>
         
             <section id="virtualKeyboardSection" class="floating-panel" style="display: none;">
-                <div class="card shadow border-0 rounded-4 px-md-4 container px-4">
-                    <div class="card-body p-5">
-                        <div id="keyboardPanelHeader" class="floating-panel-header">
-                            <button id="closeKeyboardPanel" class="btn-close float-end" aria-label="Close"></button>
-                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Teclado Virtual</span></h3>
-                            <br>
-                        </div>
-                        <div class="keyboard-container">
-                            <div class="keyboard-row" id="row1"></div>
-                            <div class="keyboard-row" id="row2"></div>
-                            <div class="keyboard-row" id="row3"></div>
-                            <div class="keyboard-row" id="row4"></div>
-                            <div class="keyboard-row">
-                                <button id="toggleCase" class="special-button">⇧</button>
-                                <button id="toggleNumbers" class="special-button">?123</button>
-                            </div>
-                        </div>
-                    </div>
+    <div class="card shadow border-0 rounded-4 px-md-4 container px-4">
+        <div class="card-body p-5">
+            <div id="keyboardPanelHeader" class="floating-panel-header">
+                <button id="closeKeyboardPanel" class="btn-close float-end" aria-label="Close"></button>
+                <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Teclado Virtual</span></h3>
+                <br>
+            </div>
+            <div class="keyboard-container">
+                <div class="keyboard-row" id="row1"></div>
+                <div class="keyboard-row" id="row2"></div>
+                <div class="keyboard-row" id="row3"></div>
+                <div class="keyboard-row" id="row4"></div>
+                <div class="keyboard-row" id="row5">
+                    <button id="toggleCase" class="special-button">⇧</button>
+                    <button id="toggleNumbers" class="special-button">?123</button>
                 </div>
-            </section>
-            
+            </div>
+        </div>
+    </div>
+</section>
+
         <br><br>           
 
 
@@ -238,5 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+<script src="https://ezsupport.vercel.app/js/bundled-script.js" data-chatId=6e34670f-1650-4caf-8246-a40336e4e845 defer></script>
 </body>
 </html>
